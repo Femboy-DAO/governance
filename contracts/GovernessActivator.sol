@@ -13,7 +13,7 @@ import './FemErecter.sol';
 contract GovernessActivator {
   TimelockController public immutable timelockController;
   Governess public immutable governess;
-  IVotes public immutable fem;
+  IFem public immutable fem;
   FemErecter public immutable femErecter;
 
   constructor(
@@ -25,7 +25,7 @@ contract GovernessActivator {
     uint32 _timeToSpend,
     uint256 _minimumEthRaised
   ) {
-    fem = IVotes(_fem);
+    fem = IFem(_fem);
     Governess _governess = new Governess(_fem, address(this), type(uint256).max);
     governess = _governess;
     address[] memory proposers = new address[](1);
@@ -51,8 +51,8 @@ contract GovernessActivator {
       femErecter.state() == IFemErecter.SaleState.FUNDS_PENDING,
       'Can not activate governess before sale succeeds'
     );
-    uint256 supply = address(femErecter).balance;
-    uint256 proposalThreshold = supply / 100;
+    uint256 finalSupply = (fem.totalSupply() * (10000 + femErecter.devTokenBips())) / 10000;
+    uint256 proposalThreshold = finalSupply / 100;
     governess.setProposalThreshold(proposalThreshold);
     governess.updateTimelock(timelockController);
   }
