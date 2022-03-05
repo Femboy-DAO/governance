@@ -81,7 +81,7 @@ contract FemErecter is InitializedOwnable, IFemErecter {
     uint256 amount = address(this).balance;
     _sendETH(to, amount);
     emit EthClaimed(to, amount);
-    fem.mint(devAddress, (amount * devTokenBips) / 10000);
+    fem.mint(devAddress, (fem.totalSupply() * devTokenBips) / 10000);
     fem.transferOwnership(owner());
   }
 
