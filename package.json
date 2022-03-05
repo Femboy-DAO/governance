@@ -1,0 +1,41 @@
+{
+  "name": "@femboydao/governance",
+  "license": "MIT",
+  "version": "0.0.2",
+  "engines": {
+    "node": ">=10"
+  },
+  "devDependencies": {
+    "@ethersproject/bignumber": "^5.0.8",
+    "@nomiclabs/hardhat-ethers": "npm:hardhat-deploy-ethers",
+    "@nomiclabs/hardhat-etherscan": "^2.1.1",
+    "@nomiclabs/hardhat-solhint": "^2.0.0",
+    "@nomiclabs/hardhat-waffle": "^2.0.0",
+    "@openzeppelin/contracts": "^4.5.0",
+    "@typechain/ethers-v5": "^4.0.0",
+    "@types/chai": "^4.2.6",
+    "@types/dotenv": "^8.2.0",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^14.11.8",
+    "chai": "^4.2.0",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.11.0",
+    "eslint-config-prettier": "^6.12.0",
+    "ethereum-waffle": "^3.0.2",
+    "ethers": "^5.0.8",
+    "hardhat": "^2.0.3",
+    "hardhat-deploy": "^0.7.0-beta.56",
+    "hardhat-typechain": "^0.3.3",
+    "mocha": "^6.2.2",
+    "solidity-coverage": "^0.7.12",
+    "ts-node": "^8.5.4",
+    "typechain": "^4.0.0",
+    "typescript": "^3.7.3"
+  },
+  "scripts": {
+    "lint": "hardhat check",
+    "compile": "hardhat compile",
+    "coverage": "hardhat coverage",
+    "test": "hardhat test"
+  }
+}
