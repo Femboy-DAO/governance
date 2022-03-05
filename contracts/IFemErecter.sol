@@ -7,6 +7,8 @@ interface IFem {
   function burn(address src, uint256 amount) external;
 
   function transferOwnership(address newOwner) external;
+
+  function totalSupply() external view returns (uint256);
 }
 
 interface IFemErecter {
