@@ -119,12 +119,12 @@ describe('GovernessActivator', () => {
         .to.be.revertedWith('Can not activate governess before sale succeeds')
     })
 
-    it('Sets proposal threshold to 1% of supply', async () => {
+    it('Sets proposal threshold to 1% of final supply (including dev mint)', async () => {
       await goToStart()
       await femErecter.deposit({ value: minimumEthRaised })
       await goToEnd()
       await governessActivator.activateGoverness()
-      expect(await governess.proposalThreshold()).to.eq(minimumEthRaised.div(100))
+      expect(await governess.proposalThreshold()).to.eq(minimumEthRaised.add(minimumEthRaised.div(100)).div(100))
     })
 
     it('Sets timelock to timelock address', async () => {
