@@ -59,6 +59,10 @@ describe('GovernessActivator', () => {
     it('Sets proposer role to governess', async () => {
       expect(await timelockController.hasRole(await timelockController.PROPOSER_ROLE(), governess.address)).to.be.true
     })
+
+    it('Sets executor to governess', async () => {
+      expect(await timelockController.hasRole(await timelockController.EXECUTOR_ROLE(), governess.address)).to.be.true
+    })
   })
 
   describe('Governess', () => {

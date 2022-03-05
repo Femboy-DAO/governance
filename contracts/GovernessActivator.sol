@@ -31,6 +31,7 @@ contract GovernessActivator {
     address[] memory proposers = new address[](1);
     address[] memory executors = new address[](1);
     proposers[0] = address(_governess);
+    executors[0] = address(_governess);
     TimelockController timelock = new TimelockController(2 days, proposers, executors);
     timelockController = timelock;
     timelockController.renounceRole(keccak256('TIMELOCK_ADMIN_ROLE'), address(this));
