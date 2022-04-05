@@ -8,9 +8,9 @@ import './IFemErecter.sol';
 contract FemErecter is InitializedOwnable, IFemErecter {
   using SafeERC20 for IERC20;
 
+  IFem public immutable override fem;
   address public immutable override devAddress;
   uint256 public immutable override devTokenBips;
-  IFem public immutable override fem;
   uint256 public immutable override saleStartTime;
   uint256 public immutable override saleEndTime;
   uint256 public immutable override saleDuration;
