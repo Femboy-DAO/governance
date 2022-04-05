@@ -36,7 +36,7 @@ contract FemErecter is InitializedOwnable, IFemErecter {
     uint256 _minimumEthRaised
   ) InitializedOwnable(_owner) {
     require(_devTokenBips > 0, 'devTokenBips can not be 0');
-    require(_devTokenBips < 1000, 'devTokenBips too high');
+    require(_devTokenBips <= 1000, 'devTokenBips too high');
     require(_saleStartTime > block.timestamp, 'start too early');
     devAddress = _devAddress;
     devTokenBips = _devTokenBips;

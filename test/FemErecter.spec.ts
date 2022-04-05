@@ -53,9 +53,9 @@ describe('FemErecter', () => {
         .to.be.revertedWith('devTokenBips can not be 0')
     })
 
-    it('Reverts if devTokenBips >= 1000', async () => {
+    it('Reverts if devTokenBips > 1000', async () => {
       const {timestamp} = await ethers.provider.getBlock('latest')
-      await expect(deployContract('FemErecter', owner.address, dev.address, 1000, fem.address, timestamp, saleDuration, timeToSpend, minimumEthRaised))
+      await expect(deployContract('FemErecter', owner.address, dev.address, 1001, fem.address, timestamp, saleDuration, timeToSpend, minimumEthRaised))
         .to.be.revertedWith('devTokenBips too high')
     })
 
